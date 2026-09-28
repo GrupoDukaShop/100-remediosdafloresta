@@ -1,0 +1,62 @@
+[
+  {
+    "id": "cap1",
+    "title": "Cicatrização e Cuidados com a Pele",
+    "intro": "Remédios tradicionais para feridas, queimaduras leves, contusões e a saúde da pele — muitos deles hoje estudados também pela ciência.",
+    "count": 10
+  },
+  {
+    "id": "cap2",
+    "title": "Dores, Inflamações e Reumatismo",
+    "intro": "Cascas, resinas e raízes que os povos da floresta usam há gerações para aliviar dores musculares, articulares e inflamações.",
+    "count": 12
+  },
+  {
+    "id": "cap3",
+    "title": "Sistema Respiratório",
+    "intro": "Chás, xaropes e vapores que apoiam a respiração, aliviam a tosse e confortam a garganta nos resfriados do dia a dia.",
+    "count": 10
+  },
+  {
+    "id": "cap4",
+    "title": "Digestão e Saúde do Fígado",
+    "intro": "Ervas amargas e depurativas usadas tradicionalmente para apoiar a digestão, o fígado e o bem-estar do sistema digestivo.",
+    "count": 12
+  },
+  {
+    "id": "cap5",
+    "title": "Infecções, Febre e Imunidade",
+    "intro": "Plantas tradicionalmente associadas ao fortalecimento das defesas do corpo e ao apoio em quadros infecciosos leves.",
+    "count": 10
+  },
+  {
+    "id": "cap6",
+    "title": "Rins, Bexiga e Sistema Urinário",
+    "intro": "Ervas diuréticas e depurativas tradicionalmente usadas para apoiar a saúde dos rins e das vias urinárias.",
+    "count": 8
+  },
+  {
+    "id": "cap7",
+    "title": "Energia, Força e Sistema Nervoso",
+    "intro": "Tônicos tradicionais para a fadiga do dia a dia, e ervas calmantes para acalmar a mente antes de dormir.",
+    "count": 10
+  },
+  {
+    "id": "cap8",
+    "title": "Saúde da Mulher e Pós-Parto",
+    "intro": "Plantas tradicionalmente usadas por parteiras e mulheres indígenas para o cuidado do corpo feminino e a recuperação após o parto.",
+    "count": 8
+  },
+  {
+    "id": "cap9",
+    "title": "Primeiros Socorros na Mata",
+    "intro": "Remédios de emergência que caçadores, ribeirinhos e povos da floresta carregam no conhecimento — não no bolso.",
+    "count": 10
+  },
+  {
+    "id": "cap10",
+    "title": "Banhos, Defumações e Purificação",
+    "intro": "Um olhar respeitoso sobre práticas culturais de banhos de ervas e defumações, parte importante da relação de muitos povos com as plantas — para além do uso físico do corpo.",
+    "count": 10
+  }
+]
