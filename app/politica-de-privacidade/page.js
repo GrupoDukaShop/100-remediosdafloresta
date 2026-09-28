@@ -53,7 +53,7 @@ export default function PoliticaPrivacidadePage() {
             esta página de tempos em tempos.
           </p>
 
-          <p><em>Última atualização: [inserir data].</em></p>
+          <p><em>Última atualização: 27/09/2026.</em></p>
         </div>
       </section>
       <SiteFooter />
