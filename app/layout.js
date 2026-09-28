@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import SiteHeader from "@/components/SiteHeader";
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body>
         <SiteHeader />
         {children}
+        <Analytics />
       </body>
     </html>
   );
