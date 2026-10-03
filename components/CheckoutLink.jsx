@@ -2,7 +2,7 @@
 
 import { getTrafficAttribution } from "./traffic-attribution";
 
-const CHECKOUT_URL = "https://pay.cakto.com.br/3ct27k5_1110487";
+const CHECKOUT_URL = "https://pay.lowify.com.br/checkout?product_id=bc02m5";
 
 export default function CheckoutLink({
   children,

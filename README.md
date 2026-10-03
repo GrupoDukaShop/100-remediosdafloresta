@@ -20,9 +20,9 @@ Acesse http://localhost:3000
 
 ## Antes de publicar, troque:
 
-1. **Link de checkout** — já configurado em `components/LandingPage.jsx`:
+1. **Link de checkout** — já configurado em `components/CheckoutLink.jsx`:
   ```
-  https://pay.cakto.com.br/3ct27k5_1110487
+  https://pay.lowify.com.br/checkout?product_id=bc02m5
   ```
 
 2. **Política de Privacidade** — o texto em `app/politica-de-privacidade/page.js`
