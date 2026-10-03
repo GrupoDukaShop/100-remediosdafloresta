@@ -64,15 +64,26 @@ export async function POST(request) {
 
   let event;
   if (body?.type === "visit") {
+    const source = readText(body?.source ?? "Acesso direto/sem identificação", 200);
+    const utmMedium = readText(body?.utmMedium ?? "", 200);
+    const utmCampaign = readText(body?.utmCampaign ?? "", 200);
+    if ([source, utmMedium, utmCampaign].some((value) => value === null)) {
+      return NextResponse.json({ error: "Invalid event." }, { status: 400 });
+    }
+
     event = {
       type: "visit",
       timestamp: new Date().toISOString(),
       country: getCountry(request),
       pagePath,
+      source,
+      utmMedium,
+      utmCampaign,
     };
   } else if (body?.type === "click") {
     const ctaId = readText(body?.ctaId, 80);
     const ctaLabel = readText(body?.ctaLabel, 160);
+    const source = readText(body?.source ?? "Acesso direto/sem identificação", 200);
     const utmSource = readText(body?.utmSource ?? "", 200);
     const utmMedium = readText(body?.utmMedium ?? "", 200);
     const utmCampaign = readText(body?.utmCampaign ?? "", 200);
@@ -82,7 +93,7 @@ export async function POST(request) {
     if (
       !ctaId ||
       !ctaLabel ||
-      [utmSource, utmMedium, utmCampaign, utmContent, utmTerm].some((value) => value === null)
+      [source, utmSource, utmMedium, utmCampaign, utmContent, utmTerm].some((value) => value === null)
     ) {
       return NextResponse.json({ error: "Invalid event." }, { status: 400 });
     }
@@ -93,6 +104,7 @@ export async function POST(request) {
       ctaId,
       ctaLabel,
       pagePath,
+      source,
       utmSource,
       utmMedium,
       utmCampaign,

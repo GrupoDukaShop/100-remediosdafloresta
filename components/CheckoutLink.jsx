@@ -1,5 +1,7 @@
 "use client";
 
+import { getTrafficAttribution } from "./traffic-attribution";
+
 const CHECKOUT_URL = "https://pay.cakto.com.br/3ct27k5_1110487";
 
 export default function CheckoutLink({
@@ -9,17 +11,12 @@ export default function CheckoutLink({
   trackingLabel,
 }) {
   function trackClick() {
-    const params = new URLSearchParams(window.location.search);
     const event = {
       type: "click",
       ctaId: trackingId,
       ctaLabel: trackingLabel,
       pagePath: window.location.pathname,
-      utmSource: params.get("utm_source") || "",
-      utmMedium: params.get("utm_medium") || "",
-      utmCampaign: params.get("utm_campaign") || "",
-      utmContent: params.get("utm_content") || "",
-      utmTerm: params.get("utm_term") || "",
+      ...getTrafficAttribution(),
     };
 
     fetch("/api/track-event", {

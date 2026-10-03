@@ -22,16 +22,19 @@ function doPost(e) {
   var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   var sheetName;
   var headers;
-  var row;
+  var values;
 
   if (event.type === "visit") {
     sheetName = "Acessos";
-    headers = ["Data/hora", "País", "Página"];
-    row = [
-      safeCell(event.timestamp),
-      safeCell(event.country),
-      safeCell(event.pagePath),
-    ];
+    headers = ["Data/hora", "País", "Página", "Origem", "UTM medium", "UTM campaign"];
+    values = {
+      "Data/hora": event.timestamp,
+      "País": event.country,
+      "Página": event.pagePath,
+      "Origem": event.source,
+      "UTM medium": event.utmMedium,
+      "UTM campaign": event.utmCampaign,
+    };
   } else if (event.type === "click") {
     sheetName = "Cliques";
     headers = [
@@ -44,18 +47,20 @@ function doPost(e) {
       "UTM campaign",
       "UTM content",
       "UTM term",
+      "Origem",
     ];
-    row = [
-      safeCell(event.timestamp),
-      safeCell(event.ctaId),
-      safeCell(event.ctaLabel),
-      safeCell(event.pagePath),
-      safeCell(event.utmSource),
-      safeCell(event.utmMedium),
-      safeCell(event.utmCampaign),
-      safeCell(event.utmContent),
-      safeCell(event.utmTerm),
-    ];
+    values = {
+      "Data/hora": event.timestamp,
+      "ID do botão": event.ctaId,
+      "Texto do botão": event.ctaLabel,
+      "Página": event.pagePath,
+      "UTM source": event.utmSource,
+      "UTM medium": event.utmMedium,
+      "UTM campaign": event.utmCampaign,
+      "UTM content": event.utmContent,
+      "UTM term": event.utmTerm,
+      "Origem": event.source,
+    };
   } else {
     throw new Error("Tipo de evento inválido.");
   }
@@ -63,10 +68,27 @@ function doPost(e) {
   var sheet = spreadsheet.getSheetByName(sheetName);
   if (!sheet) sheet = spreadsheet.insertSheet(sheetName);
 
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(headers);
+  var existingHeaders = [];
+  if (sheet.getLastRow() > 0 && sheet.getLastColumn() > 0) {
+    existingHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getDisplayValues()[0];
   }
 
+  if (existingHeaders.length === 0) {
+    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    existingHeaders = headers;
+  } else {
+    var missingHeaders = headers.filter(function (header) {
+      return existingHeaders.indexOf(header) === -1;
+    });
+    if (missingHeaders.length > 0) {
+      sheet.getRange(1, existingHeaders.length + 1, 1, missingHeaders.length).setValues([missingHeaders]);
+      existingHeaders = existingHeaders.concat(missingHeaders);
+    }
+  }
+
+  var row = existingHeaders.map(function (header) {
+    return safeCell(values[header]);
+  });
   sheet.appendRow(row);
 
   return ContentService
@@ -78,7 +100,9 @@ function doPost(e) {
 Em seguida, abra **Implantar > Gerenciar implantações**, edite a implantação
 existente, selecione **Nova versão** e clique em **Implantar**. Mantenha as
 permissões de execução/acesso que já estão funcionando e a mesma URL `/exec`.
-Se o Google pedir, autorize o script novamente.
+O script adiciona os novos cabeçalhos `Origem`, `UTM medium` e `UTM campaign`
+ao fim das abas existentes, sem apagar os dados anteriores. Se o Google pedir,
+autorize o script novamente.
 
 ## Configurar o projeto
 
@@ -97,7 +121,16 @@ Veja [.env.example](../.env.example) para o nome exato da variável. Não coloqu
 em código client-side nem compartilhe a planilha publicamente.
 
 Cada linha em `Acessos` registra data/hora UTC gerada pelo servidor, país inferido
-pelos cabeçalhos de geolocalização da hospedagem e página. Em desenvolvimento local
-ou quando o provedor não informa o país, será gravado `Não identificado`. `Cliques`
-continua registrando os botões do checkout e os parâmetros UTM, quando presentes.
-O país é aproximado e não são coletados endereços IP nem outros dados pessoais.
+pelos cabeçalhos de geolocalização da hospedagem, página, origem e campanha. Em
+`Cliques`, também fica registrada a origem junto aos botões e parâmetros UTM. A origem
+prioriza `utm_source`, usa o domínio de referência externo como alternativa e preserva
+a atribuição durante a sessão. Para apps sociais que ocultam o referenciador, use links
+com UTM, por exemplo:
+
+- Instagram: `https://SEU-DOMINIO/?utm_source=instagram&utm_medium=social&utm_campaign=perfil`
+- Facebook: `https://SEU-DOMINIO/?utm_source=facebook&utm_medium=social&utm_campaign=perfil`
+
+Troque `SEU-DOMINIO` pelo endereço público do site. Se não houver UTM nem referenciador,
+a origem será `Acesso direto/sem identificação`. Em desenvolvimento local ou quando o
+provedor não informa o país, será gravado `Não identificado`. O país é aproximado e
+não são coletados endereços IP nem outros dados pessoais.
