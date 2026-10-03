@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import SiteHeader from "@/components/SiteHeader";
+import SiteVisitTracker from "@/components/SiteVisitTracker";
 
 export const metadata = {
   title: "Kit Sabedoria Natural • Saúde Sem Remédio + 100 Remédios da Floresta",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <SiteHeader />
+        <SiteVisitTracker />
         {children}
         <Analytics />
       </body>

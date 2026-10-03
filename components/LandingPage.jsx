@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import SiteFooter from "./SiteFooter";
+import CheckoutLink from "./CheckoutLink";
 
 /* ---------------- Scroll progress bar + back-to-top + reveal-on-scroll ---------------- */
 function useScrollFx() {
@@ -134,11 +135,6 @@ export default function LandingPage() {
         <div className="scroll-progress-bar" id="scrollProgressBar"></div>
       </div>
 
-      <div className="top-announcement">
-        📢 OFERTA ESPECIAL DE LANÇAMENTO:{" "}
-        <span>DE R$ 19,90 POR APENAS R$ 9,00 COM ACESSO IMEDIATO NO SEU E-MAIL</span>
-      </div>
-
       {/* HERO */}
       <header className="hero-section">
         <div className="container">
@@ -163,13 +159,17 @@ export default function LandingPage() {
           </div>
 
           <div className="hero-explore-box scroll-reveal scroll-reveal-up delay-400">
-            <a href="#colecao" className="btn-hero-explore">
+            <CheckoutLink
+              className="btn-hero-explore"
+              trackingId="hero-guides"
+              trackingLabel="Conhecer os 2 Guias Completos"
+            >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
               </svg>
               Conhecer os 2 Guias Completos
-            </a>
+            </CheckoutLink>
           </div>
         </div>
       </header>
@@ -445,9 +445,13 @@ export default function LandingPage() {
               <div className="price-main">Por apenas <span className="price-highlight">R$ 9,00</span></div>
               <div className="offer-installments">pagamento único via Pix</div>
             </div>
-            <a href="https://pay.cakto.com.br/3ct27k5_1110487" className="btn-cta offer-cta">
+            <CheckoutLink
+              className="btn-cta offer-cta"
+              trackingId="offer-checkout"
+              trackingLabel="QUERO O KIT COMPLETO POR R$ 9"
+            >
               QUERO O KIT COMPLETO POR R$ 9
-            </a>
+            </CheckoutLink>
             <div className="offer-trust-row">
               <span className="offer-trust-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>Pagamento seguro</span>
               <span className="offer-trust-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>Link por e-mail após a confirmação</span>

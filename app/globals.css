@@ -123,10 +123,13 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: none;
 }
 .ebook-book img { width: 100%; height: 100%; object-fit: cover; }
-.ebook-book-back { transform: translateX(-36%) rotateZ(-7deg) rotateY(-12deg) translateZ(0); }
-.ebook-book-front { transform: translateX(-42%) translateY(7%) rotateZ(7deg) rotateY(-8deg) translateZ(45px); }
-.ebook-mockup-3d:hover .ebook-book-back { transform: translateX(-43%) rotateZ(-10deg) rotateY(-16deg) translateY(-5px); }
-.ebook-mockup-3d:hover .ebook-book-front { transform: translateX(-38%) translateY(3%) rotateZ(9deg) rotateY(-5deg) translateZ(62px); }
+.ebook-book-back { left: 16%; transform: rotateZ(-7deg) rotateY(-12deg) translateZ(0); }
+.ebook-book-front { left: 53%; transform: translateY(7%) rotateZ(7deg) rotateY(-8deg) translateZ(45px); }
+.ebook-mockup-3d:hover .ebook-book-back { transform: rotateZ(-10deg) rotateY(-16deg) translateY(-5px); }
+.ebook-mockup-3d:hover .ebook-book-front { transform: translateY(3%) rotateZ(9deg) rotateY(-5deg) translateZ(62px); }
+.master-floating-book .ebook-book { width: 160px; height: 218px; }
+.master-floating-book .ebook-book-back { left: 3%; }
+.master-floating-book .ebook-book-front { left: 42%; }
 
 .hero-explore-box { max-width: 680px; margin: 0 auto; text-align: center; }
 .btn-hero-explore {
@@ -322,11 +325,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 @media (max-width: 540px) {
   .ebook-mockup-3d { height: 285px; }
-  .ebook-book { width: 164px; height: 224px; }
-  .ebook-book-back { transform: translateX(-38%) rotateZ(-7deg) rotateY(-12deg); }
-  .ebook-book-front { transform: translateX(-43%) translateY(7%) rotateZ(7deg) rotateY(-8deg) translateZ(38px); }
-  .ebook-mockup-3d:hover .ebook-book-back { transform: translateX(-45%) rotateZ(-10deg) rotateY(-16deg) translateY(-4px); }
-  .ebook-mockup-3d:hover .ebook-book-front { transform: translateX(-39%) translateY(3%) rotateZ(9deg) rotateY(-5deg) translateZ(50px); }
+  .ebook-book { width: 140px; height: 192px; }
+  .ebook-book-back { left: 2%; transform: rotateZ(-7deg) rotateY(-12deg); }
+  .ebook-book-front { left: 45%; transform: translateY(7%) rotateZ(7deg) rotateY(-8deg) translateZ(38px); }
+  .ebook-mockup-3d:hover .ebook-book-back { transform: rotateZ(-10deg) rotateY(-16deg) translateY(-4px); }
+  .ebook-mockup-3d:hover .ebook-book-front { transform: translateY(3%) rotateZ(9deg) rotateY(-5deg) translateZ(50px); }
+  .master-floating-book .ebook-book { width: 140px; height: 192px; }
 }
 
 @media (max-width: 768px) { .app-grid { grid-template-columns: 1fr; } }
