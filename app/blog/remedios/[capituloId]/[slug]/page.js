@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import capitulos from "@/data/capitulos-remedios.json";
 import remedios from "@/data/remedios.json";
 import SiteFooter from "@/components/SiteFooter";
+import CheckoutLink from "@/components/CheckoutLink";
 
 export function generateStaticParams() {
   return remedios.map((r) => ({ capituloId: r.capituloId, slug: r.slug }));
@@ -71,7 +72,13 @@ export default function RemedioPage({ params }) {
               <strong>100 Remédios da Floresta</strong>, organizados por finalidade e
               prontos para consulta rápida.
             </p>
-            <a href="/#oferta" className="btn-cta">Quero o Ebook Completo por R$ 9</a>
+            <CheckoutLink
+              className="btn-cta"
+              trackingId="remedy-article-checkout"
+              trackingLabel="Quero acessar os 2 guias completos"
+            >
+              Quero acessar os 2 guias completos
+            </CheckoutLink>
           </div>
 
           <div className="post-nav">

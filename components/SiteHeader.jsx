@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CheckoutLink from "./CheckoutLink";
 
 export default function SiteHeader() {
   return (
@@ -10,7 +11,13 @@ export default function SiteHeader() {
         <nav className="site-nav">
           <Link href="/blog">Blog</Link>
           <Link href="/sobre">Sobre</Link>
-          <Link href="/#oferta" className="site-nav-cta">Comprar</Link>
+          <CheckoutLink
+            className="site-nav-cta"
+            trackingId="header-checkout"
+            trackingLabel="Quero acessar os guias"
+          >
+            Quero acessar
+          </CheckoutLink>
         </nav>
       </div>
     </div>

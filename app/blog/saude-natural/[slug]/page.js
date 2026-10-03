@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import artigos from "@/data/artigos-saude-natural.json";
 import SiteFooter from "@/components/SiteFooter";
+import CheckoutLink from "@/components/CheckoutLink";
 
 export function generateStaticParams() {
   return artigos.map((a) => ({ slug: a.slug }));
@@ -45,7 +46,13 @@ export default function ArtigoPage({ params }) {
 
           <div className="post-cta-box">
             <p>{artigo.cta}</p>
-            <a href="/#oferta" className="btn-cta">Quero o Ebook Completo por R$ 9</a>
+            <CheckoutLink
+              className="btn-cta"
+              trackingId="health-article-checkout"
+              trackingLabel="Quero acessar os 2 guias completos"
+            >
+              Quero acessar os 2 guias completos
+            </CheckoutLink>
           </div>
 
           <div className="post-nav">

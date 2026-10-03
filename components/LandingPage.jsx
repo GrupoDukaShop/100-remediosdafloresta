@@ -84,7 +84,7 @@ const FAQS = [
   },
   {
     q: "Vou pagar alguma mensalidade?",
-    a: "Não! O pagamento de R$ 9,00 é único. Você compra uma vez e os dois ebooks são seus para sempre, sem nenhuma cobrança surpresa.",
+    a: "Não. A compra é feita uma única vez, sem mensalidades ou cobranças recorrentes.",
   },
   {
     q: "E se eu não gostar do material?",
@@ -168,7 +168,7 @@ export default function LandingPage() {
                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
                 <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
               </svg>
-              Conhecer os 2 Guias Completos
+              Quero acessar os 2 guias agora
             </CheckoutLink>
           </div>
         </div>
@@ -285,10 +285,14 @@ export default function LandingPage() {
                   </ul>
                 </div>
                 <div className="volume-footer">
-                  <a href="#oferta" className="btn-card-package">
-                    <span>Incluso no Kit Completo</span>
+                  <CheckoutLink
+                    className="btn-card-package"
+                    trackingId="health-guide-checkout"
+                    trackingLabel="Quero acessar os 2 guias — Saúde Sem Remédio"
+                  >
+                    <span>Quero acessar os 2 guias</span>
                     <span className="badge-included">✓ Incluso</span>
-                  </a>
+                  </CheckoutLink>
                 </div>
               </div>
             </article>
@@ -319,10 +323,14 @@ export default function LandingPage() {
                   </ul>
                 </div>
                 <div className="volume-footer">
-                  <a href="#oferta" className="btn-card-package">
-                    <span>Incluso no Kit Completo</span>
+                  <CheckoutLink
+                    className="btn-card-package"
+                    trackingId="forest-guide-checkout"
+                    trackingLabel="Quero acessar os 2 guias — 100 Remédios da Floresta"
+                  >
+                    <span>Quero acessar os 2 guias</span>
                     <span className="badge-included">✓ Incluso</span>
-                  </a>
+                  </CheckoutLink>
                 </div>
               </div>
             </article>
@@ -349,7 +357,13 @@ export default function LandingPage() {
                 <div className="stat-box"><span className="stat-number">10</span><span className="stat-label">Capítulos de Saúde Natural</span></div>
                 <div className="stat-box"><span className="stat-number">150+</span><span className="stat-label">Páginas de Conteúdo</span></div>
               </div>
-              <a href="#oferta" className="btn-cta u-inline-cta">Quero o Kit Completo por R$ 9</a>
+              <CheckoutLink
+                className="btn-cta u-inline-cta"
+                trackingId="collection-checkout"
+                trackingLabel="Quero acessar o Kit Sabedoria Natural completo"
+              >
+                Quero acessar os 2 guias agora
+              </CheckoutLink>
             </div>
           </div>
         </div>
@@ -430,7 +444,7 @@ export default function LandingPage() {
                 <path d="M12 22c4.4 0 8-3.3 8-7.5 0-3-1.7-5.4-4.2-7.5.1 2.7-1.4 4.2-3 4.2.6-3.8-1.4-7-4.4-9.2.2 3.7-4.4 6.2-4.4 11.2C4 18.1 7.6 22 12 22Z" />
                 <path d="M9.5 17.5c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c0-1.1-.6-2-1.5-2.8 0 1-.6 1.6-1.2 1.6.1-1.4-.6-2.5-1.8-3.4.1 1.7-.5 2.8-.5 4.6Z" />
               </svg>
-              <span>Condição especial de lançamento</span>
+              <span>Acesso digital aos 2 guias completos</span>
             </div>
             <h2 className="offer-heading">Leve o Kit Sabedoria Natural Completo</h2>
             <p className="feature-lead">Os 2 guias completos para cuidar de você e da sua família com a força da natureza.</p>
@@ -440,17 +454,12 @@ export default function LandingPage() {
               <li><span className="offer-summary-copy"><strong>Arquivos em Alta Resolução</strong><span>Prontos para ler ou imprimir</span></span></li>
               <li><span className="offer-summary-copy"><strong>Garantia de 7 Dias</strong><span>Compra protegida</span></span></li>
             </ul>
-            <div className="offer-price-wrap">
-              <div className="price-anchor">De R$ 19,90</div>
-              <div className="price-main">Por apenas <span className="price-highlight">R$ 9,00</span></div>
-              <div className="offer-installments">pagamento único via Pix</div>
-            </div>
             <CheckoutLink
               className="btn-cta offer-cta"
               trackingId="offer-checkout"
-              trackingLabel="QUERO O KIT COMPLETO POR R$ 9"
+              trackingLabel="Quero garantir meu acesso aos 2 guias"
             >
-              QUERO O KIT COMPLETO POR R$ 9
+              QUERO ACESSAR OS 2 GUIAS AGORA
             </CheckoutLink>
             <div className="offer-trust-row">
               <span className="offer-trust-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>Pagamento seguro</span>

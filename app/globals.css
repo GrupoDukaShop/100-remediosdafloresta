@@ -145,9 +145,6 @@ img { max-width: 100%; height: auto; display: block; }
   transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 32px rgba(41, 75, 56, 0.45);
 }
 
-.price-anchor { font-size: 1.05rem; color: var(--text-muted); text-decoration: line-through; margin-bottom: 0.25rem; }
-.price-main { font-size: 1.3rem; font-weight: 600; color: var(--green-deep); margin-bottom: 1.2rem; }
-.price-highlight { font-size: 2.8rem; font-weight: 800; color: var(--terracotta); font-family: var(--font-serif); }
 
 .btn-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem;
@@ -377,7 +374,6 @@ img { max-width: 100%; height: auto; display: block; }
 .offer-summary-copy { display: grid; grid-template-columns: minmax(210px, 0.95fr) minmax(0, 1.05fr); gap: 1rem; width: 100%; }
 .offer-summary-copy strong { color: var(--green-deep); }
 .offer-summary-copy > span { color: var(--text-muted); }
-.offer-price-wrap { margin-bottom: 1.5rem; }
 .offer-installments { color: var(--green-deep); font-size: 1.1rem; font-weight: 700; }
 .offer-cta { padding-block: 1.15rem; font-size: 1.2rem; }
 .offer-trust-row { display: grid; grid-template-columns: 0.85fr 1.5fr 0.85fr; gap: 0.65rem; margin-top: 1rem; }
@@ -392,7 +388,6 @@ img { max-width: 100%; height: auto; display: block; }
   .offer-summary-copy { display: block; }
   .offer-summary-copy strong, .offer-summary-copy > span { display: block; }
   .offer-summary-copy > span { margin-top: 0.12rem; font-size: 0.94rem; }
-  .price-highlight { font-size: 2.55rem; }
   .offer-trust-row { grid-template-columns: 1fr; gap: 0.5rem; }
   .offer-trust-item { justify-content: flex-start; padding: 0.65rem 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: var(--bg-cream); font-size: 0.84rem; }
 }
